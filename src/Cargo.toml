@@ -7,3 +7,8 @@ edition = "2020"
 [dependencies]
 humantime = "2.0.1"
 chrono = "0.4.15"
+
+
+[lib]
+name = "activity"
+path = "src/mylib.rs"

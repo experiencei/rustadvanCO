@@ -51,7 +51,7 @@ impl Bills {
         match self.inner.get_mut(name) {
             Some(bill) => {
                 bill.amount = amount;
-                true
+                true 
             }
             None => false,
         }

@@ -36,3 +36,38 @@ fn move_clicky(obj: Box<dyn Clicky>)  {
 
 let keeb = Box::new(Keyboard);
 move_clicky(keep);
+
+
+//Heterogeneous Vector//
+
+struct Mouse;
+impl Clicky for Mouse {
+    fn click(&self) {
+        println!("click");
+    }
+}
+
+let mouse: Box<dyn Clicky> = Box::new(Mouse);
+let keeb: Box<dyn Clicky> = Box::new(Keyboard);
+let clickers = vec![keeb, mouse];
+
+
+let keeb = Box::new(Keyboard);
+let mouse = Box::new(Mouse);
+let clickers: Vec<Box<dyn Clicky>> = vec![keeb , mouse]
+
+
+fn make_clicks(clickeys: Vec<Box<dyn Clicky>>) {
+    for clicker in clickeys {
+        clicker.click();
+    }
+}
+
+let keeb = Box::new(Keyboard);
+let mouse = Box::new(Mouse);
+let clickers: Vec<Box<dyn Clicky>> = vec![keeb , mouse]
+
+make_clicks(clickers);
+
+//Note: always store in a box when working with data;
+

@@ -1,3 +1,8 @@
+trait Seat {
+    fn show(&self);
+}
+
+
 #[derive(Clone , Copy)]
 enum ConcertSeat {
     FrontRow,
@@ -26,9 +31,7 @@ impl Seat for Airline {
 }
 
 // usage with generic type
-trait Seat {
-    fn show(&self);
-}
+
 
 struct Ticket<T: Seat> {
     location: T
@@ -37,6 +40,7 @@ struct Ticket<T: Seat> {
 fn ticket_info<T: Seat>(ticket: Ticket<T>) {
     ticket.location.show();
 }
+// <T: Trait1 , U:Trait2>(param1: T, param2: U)
 
 let airline = Ticket { location: AirlineSeat::FirstClass };
 let concert = Ticket { location: ConcertSeat::FrontRow };
@@ -46,9 +50,6 @@ ticket_info(concert)
 
 
 // usage with single type
-trait Seat {
-    fn show(&self);
-}
 
 struct Ticket<T: Seat> {
     location: T
@@ -59,7 +60,20 @@ fn ticket_info(ticket: Ticket<AirlineSeat>) {
 }
 
 let airline = Ticket { location: AirlineSeat::FirstClass };
-let concert = Ticket { location: ConcertSeat::FrontRow };
 
 ticket_info(airline);
 ticket_info(concert)
+
+
+
+
+
+
+// compare and contract
+fn ticket_info<T: Seat>(ticket: Ticket<T>) {
+    ticket.location.show();
+}
+
+fn ticket_info(ticket: Ticket<AirlineSeat>) {
+    ticket.location.show();
+}

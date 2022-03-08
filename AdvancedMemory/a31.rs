@@ -52,3 +52,4 @@ fn main() {
     let total = total_cost(&materials);
     println!("cost = ${}", total);
 }
+ 

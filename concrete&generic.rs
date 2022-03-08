@@ -34,6 +34,8 @@ impl PlayRoom<BoardGame> {
     }
 }
 
+
+
 let video_room = PlayRoom {
     game: VideoGame::Xbox,
 }
@@ -68,3 +70,30 @@ where
    {
      fn func(&self, arg1: T , arg2: U) {}
    }
+
+//generic Example
+
+trait Game {
+    fn name(&self) -> String;
+}
+
+struct PlayRoom<T: Game> {
+   game : T,
+}
+
+impl<T:Game> PlayRoom<T> {
+    pub fn game_info(&self) {
+        println!("{}", self.game.name());
+    }
+}
+
+let video_room = PlayRoom {
+    game: VideoGame::Xbox,
+}
+
+let board_room = PlayRoom {
+    game : BoardGame::Monopoly
+}
+
+board_room.game_info();
+video_room.game_info();   

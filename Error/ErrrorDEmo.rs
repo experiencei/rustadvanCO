@@ -43,7 +43,7 @@ fn main() {
         Err(e) => match e {
             PassError::ReadError(s) => (),
             PassError::PassExpired => (),
-            
+            PassError::InsufficientFunds(f) => ()
         }
     }
 }

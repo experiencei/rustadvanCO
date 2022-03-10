@@ -16,7 +16,7 @@ enum Color {
 struct ShirtColor(Color);
 impl ShirtColor {
     fn new(color: Color) -> Self {
-        Self(color)
+        Self(color)n
     }
 }
 

@@ -8,3 +8,5 @@ fn clamp_speed(speed: i32) -> i32 {
         speed
     }
 }
+
+//  name must always be in caps letter.

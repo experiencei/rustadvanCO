@@ -16,3 +16,32 @@ fn main() {
         Status::Warn => println!("warn")
     }
 }
+
+// example 2 , .. here means to ignore all other things
+
+enum Species {
+    Finch,
+    Hawk,
+    Parrot,
+}
+
+struct Bird {
+    age : usize,
+    species : Species,
+}
+
+#[rustfmt::skip]
+
+fn main() {
+    let hawk = Bird {
+        age : 13, 
+        species: Species::Hawk,
+    }
+
+  match hawk {
+      Bird { age: 4, ..} => println!("4 years old bird"),
+      Bird { age: 5..=10| 15..=20, ..} => println!("5-10 or 15-20 years old bird"),
+      Bird {species: Species::Finch, ..} => println!("finch"),
+      Bird {..} => println!("other bird"),
+  }
+}

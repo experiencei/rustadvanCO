@@ -44,4 +44,23 @@ let ab = &chars[0..2];
      [] => ()
  }
 
- // always match
+ // always match the largest pattern first, followed by smaller pattern.
+
+ match slice {
+     [] => (),
+     [a, ..] => (),
+     [a, b, ..] => (),
+     [a, b, c, ..] => (),
+
+ }
+ // only the first two will be matched
+
+
+ match slice {
+    [a, b, c, ..] => (),
+    [a, b, ..] => (),
+    [a, ..] => (),
+    [] => (),
+    
+}
+// alll arms can be matched

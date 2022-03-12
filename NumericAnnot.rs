@@ -16,4 +16,5 @@ let b = a as u8 + 20u8 as u16 as u8;
 
 ///Chceked Casting  
 u8::try_from(300u16)
+
 // | in the case of the upper one we will get an error.

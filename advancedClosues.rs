@@ -15,4 +15,4 @@ fn main() {
 }
 
 // the Box is to constrict the size of the input
-// the move is to gain ownership of the name in to the closure, if there is no Box  we don't need to use the move keyword
+// the move is to gain ownership of the name in to the closure, if there is no Box  we don't need to use the move keyword 

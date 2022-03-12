@@ -1,20 +1,31 @@
 use crossbeam_channel::unbounded;
 use std::thread;
 
-enum ThreadMsg {
+enum WorkerMsg {
     PrintData(String),
     Sum(i64, i64),
     Quit,
 }
 
+enum MainMsg {
+    SumResult(i64),
+    WorkerQuit
+}
+
 fn main() {
-    let (s , r) = unbounded();
-    let handle = thread::spawn(move || loop {
-        match r.recv() {
+    let (worker_tx , worker_rx) = unbounded();
+    let (main_tx , main_rx) = unbounded();
+
+    let worker = thread::spawn(move || loop {
+        match worker_rx.recv() {
             Ok(msg) => match msg {
-                ThreadMsg::PrintData(d) => println!("{}", d),
-                ThreadMsg::Sum(lhs , rhs) => println!("{}+{}={}", lhs , rhs , (lhs , rhs)),
-                Quit => {
+                WorkerMsg::PrintData(d) => println!("Worker: {}", d),
+                WorkerMsg::Sum(lhs , rhs) => {
+                    println!("Worker:  summing...");
+                    main_tx.send(MainMsg::SumResult(lhs, rhs));
+                    ()
+                }
+                WorkerMsg::Quit => {
                     println!("thread terminating") ;
                     break ;
                 }

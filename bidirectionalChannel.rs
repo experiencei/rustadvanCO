@@ -22,7 +22,7 @@ fn main() {
                 WorkerMsg::PrintData(d) => println!("Worker: {}", d),
                 WorkerMsg::Sum(lhs , rhs) => {
                     println!("Worker:  summing...");
-                    main_tx.send(MainMsg::SumResult(lhs, rhs));
+                    main_tx.send(MainMsg::SumResult(lhs + rhs));
                     ()
                 }
                 Quit => {

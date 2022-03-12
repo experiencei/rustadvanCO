@@ -25,26 +25,34 @@ fn main() {
                     main_tx.send(MainMsg::SumResult(lhs, rhs));
                     ()
                 }
-                WorkerMsg::Quit => {
+                Quit => {
                     println!("thread terminating") ;
                     break ;
                 }
             }
 
             Err(e) => {
-                println!("disconnected");
+                println!("worker : disconnected");
+                main_tx.try_send(MainMsg::WorkerQuit)
                 break ;
             }
         }
     });
  
 
-    s.send(ThreadMsg::PrintData("hello  from main".to_owned()));
-    s.send(ThreadMsg::Sum(10, 30));
-    s.send(ThreadMsg::Quit);
+    worker_tx.send(ThreadMsg::PrintData("hello  from main".to_owned()));
+    worker_tx.send(ThreadMsg::Sum(10, 30));
+    worker_tx.send(ThreadMsg::Quit);
 
-    drop(s);
-    handle.join();
+  while let Ok(msg) = main_rx.recv() {
+      match msg {
+          MainMsg::SumResult(answer) => println!("Main: answer = {}", answer),
+          MainMsg::WorkerQuit => println!("Main worker terminated")
+      }
+  }
+
+    // drop(s);
+    worker.join();
 }
 
-// **drop used in order to causes Err as it will terminate the sender.
+// try_form** is used to avoid error like BLOCKAGE

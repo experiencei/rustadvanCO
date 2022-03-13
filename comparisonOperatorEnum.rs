@@ -34,7 +34,7 @@ enum Tax {
 
 fn smallest_amount(tax: Tax, other: Tax) -> Tax {
      if tax < other {
-         tax
+         tax 
      } else {
          other
      }

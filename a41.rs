@@ -118,7 +118,7 @@ fn main() {
 
     let job_counter = Arc::new(Mutex::new(0));
 
-    let mut workers = vec![];
+    let mut workers = vec![]; 
     // Spawn 4 workers to process jobs.
     for _ in 0..4 {
         let worker = spawn_worker(job_counter.clone());

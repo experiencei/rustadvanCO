@@ -10,7 +10,7 @@ struct Door {
     vehicle: Rc<Vehicle>,
 }
 
-let car = Rc::new(Vehicle {
+let car = Rc::new(Vehicle { 
     vin : "123".to_owned(),
 });
 

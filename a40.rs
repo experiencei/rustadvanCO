@@ -29,7 +29,7 @@ struct Corporate {
 
 #[derive(Debug)]
 struct StoreFront {
-    rentals: Rc<RefCell<Vec<Rental>>>,
+    rentals: Rc<RefCell<Vec<Rental>>>, 
 }
 
 fn main() {}

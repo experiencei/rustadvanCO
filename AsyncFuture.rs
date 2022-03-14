@@ -24,3 +24,11 @@ async fn generate_session(conn: &Connection, creds: &Credentials)
 -> Result<Session , SessionError> {
     Ok(Session)
 }
+
+#[tokio::main]
+pub async fn main() -> Result<(), ApiError> {
+    let conn = connect().await?;
+    let creds = get_credentials(&conn).await?;
+    let session = generate_session(&conn, &creds).await?;
+    Ok(())
+}

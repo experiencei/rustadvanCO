@@ -5,6 +5,7 @@ trait Game {
 }
 
 
+
 enum BoardGame {
     Chess,
     Monopoly
@@ -28,6 +29,7 @@ struct PlayRoom<T: Game> {
     game: T,
 }
 
+// concrete impl usage
 impl PlayRoom<BoardGame> {
     pub fn cleanup(&self) {
 

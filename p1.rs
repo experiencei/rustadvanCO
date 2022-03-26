@@ -6,7 +6,7 @@ use std::io;
 pub struct Bill {
     name: String,
     amount: f64,
-}
+} 
 
 /// Collection used to store bills.
 pub struct Bills {

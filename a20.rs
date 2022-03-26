@@ -9,7 +9,7 @@ enum PowerState {
 }
 
 impl PowerState {
-    fn new(state: &str) -> Option<PowerState> {
+     .fn new(state: &str) -> Option<PowerState> {
         let state: String = state.trim().to_lowercase();
         match state.as_str() {
             "off" => Some(PowerState::Off),

@@ -1,5 +1,5 @@
 trait CheckIn {
-    fn check_In(self);
+    fn check_In(&self);
     fn process(&self);
 
 }
@@ -37,7 +37,7 @@ impl CheckIn for Cargo {
 
 // fn func(param: impl Trait) {}
 // fn func<T: Trait> (param: T) {} 
-
+// fn func<T> (param: T) where T: Trait {} 
 fn process_item<T: CheckIn> (item: T) {
     item.check_in();
     item.process();

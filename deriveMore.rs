@@ -126,3 +126,16 @@ let a: Point = (1 , 1).into();
 let b: Point = (2 , 3).into();
 let c = a + b;
 println!("{:?}", c) // point { x: 3, y: 4}
+
+// Constructor
+use derive_more::Constructor;
+
+#[derive(Debug , Constructor)]
+struct Hits(u64);
+
+impl Hits {
+    fn new(data: u64) -> Self {
+        Self(data)
+    }
+}
+

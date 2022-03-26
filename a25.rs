@@ -1,4 +1,4 @@
-trait Perimeter {
+ trait Perimeter {
     fn calculate_perimeter(&self) -> i32;
 }
 

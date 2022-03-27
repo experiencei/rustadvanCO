@@ -20,7 +20,7 @@ struct IdCard {
 impl IdCard {
     pub fn new(name: &str, age: u8 , city: City) -> Self {
         Self { 
-             name : name,.to_string(),
+             name : name.to_string(),
              age,
              city
         }
@@ -41,7 +41,7 @@ fn new_ids() -> Cards {
 }
 
 #[derive(Debug)]
-struct YoungPeople<'a> {
+struct YoungPeople  a> {
    inner: vec<&'a IdCard>
 }
 

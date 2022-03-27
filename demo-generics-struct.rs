@@ -58,3 +58,12 @@ fn main() {
     let mut belt: ConveyorBelt<CarPart> = ConveyorBelt { items: vec![]};
     belt.add(CarPart::default());
 }
+
+struct Vehicle<B: Body , C: Color> {
+    body: B,
+    color: C
+}
+
+impl <B: Body , C: Color> Vehicle<B, C> { 
+    
+}

@@ -3,7 +3,7 @@ struct Entry {
 }
 
 fn main() {
-    let data = Entry { id : 5};
+    let data = Entry { id : 5}; 
     let data_ptr: Box<Entry> = Box::new(data);
     let data_stack = *data_ptr;
 }

@@ -1,4 +1,4 @@
-#[derive(Debug)]
+ #[derive(Debug)]
 enum LockError {
     MechanicalError(i32),
     NetworkError,

@@ -41,7 +41,7 @@ fn new_ids() -> Cards {
 }
 
 #[derive(Debug)]
-struct YoungPeople  a> {
+struct YoungPeople  <'a> {
    inner: vec<&'a IdCard>
 }
 

@@ -1,4 +1,3 @@
-
 struct Dimensions {
     weight: f64,
     height: f64,
@@ -20,12 +19,6 @@ impl<T : Convey> ConveyorBelt<T> {
     }
 }
 
-
-impl ConveyorBelt<Dimensions> {
-    fn add(&mut self, item: T) {
-        self.items.push(item);
-    }
-}
 
 
 struct CarPart {

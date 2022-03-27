@@ -1,4 +1,4 @@
-ytrait CheckIn {
+trait CheckIn {
     fn check_In(&self);
     fn process(&self);
 

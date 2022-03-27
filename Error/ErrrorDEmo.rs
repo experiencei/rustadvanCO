@@ -7,10 +7,14 @@ struct SubwayPass {
     expires: DateTime<Utc>,
 }
 
+#[derive(Debug , Error)]
 enum PassError {
+    #[error("expired pass")]
     PassExpired,
+    #[error("Insufficiwnt funds: {0}")]
     InsufficientFunds(isize),
-    ReadError(String)
+    #[error("pass read error: {0}")]
+    ReadError(String),
 }
 
 fn swipe_card() -> Result<SubwayPass, PassError> {
@@ -27,7 +31,7 @@ fn use_pass(pass: &mut SubwayPass , cost: isize ) -> Result<() , PassError> {
     if Utc::now() > pass.expires {
         Err(PassError::PassExpired)
     } else {
-        if pass.fund - cost < 0 {
+        if pass.funds - cost < 0 {
             Err(PassError::InsufficientFunds(pass.funds))
         } else {
             pass.funds = pass.funds - cost;

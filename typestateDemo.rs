@@ -22,7 +22,7 @@ struct OnboardingComplete {
     score : u8;
 }
 
-struct Employee<Agreement> {
+impl Employee<Agreement> {
    fn new(name: &str) -> Self {
        Self {
            name : name.to_string(),

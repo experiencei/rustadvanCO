@@ -1,4 +1,4 @@
-#[derive(Debug ,Copy , Clone)]
+ #[derive(Debug ,Copy , Clone)]
 struct NeverZero(i32);
 
 impl NeverZero {

@@ -22,7 +22,7 @@ impl<T : Convey> ConveyorBelt<T> {
 
 
 struct CarPart {
-    width: usize,
+    width: f64,
     height: f64,
     depth: f64,
     weight: f64,

@@ -42,7 +42,7 @@ impl Employee<Signature> {
 #[rustfmt::skip]
 impl Employee<Training> {
     fn train(self, score: u8) 
-    ->
+    -> Result<Employee<OnboardingComplete>, Employee<FailedTraining>>
      {
         if score >= 7 {
             OK(self.transition(OnboardingComplete { score}))

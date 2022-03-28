@@ -64,3 +64,15 @@ let ab = &chars[0..2];
     
 }
 // alll arms can be matched
+
+//Guards
+let nums = vec![7 , 9 , 8];
+match nums.as_slice() {
+    [first @ 1..=3 , rest @ ..] => {
+
+    },
+    [single] if single == &5 || single == &6 => (),
+    [a, b] => (),
+    [..] => (),
+    [] => (),
+}

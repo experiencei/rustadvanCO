@@ -10,7 +10,7 @@ fn to_owned(slice: &str) -> String {
 
 // implementing from
 enum Status {
-    Broken(u8),
+    ken(u8),
     Working
 }
 
@@ -56,5 +56,5 @@ impl From<u8> for JobError {
 }
 
 fn execute_job(job: Job) -> Result<(), JobError> {
-    Err(2)
+    Err(2)?;
 }

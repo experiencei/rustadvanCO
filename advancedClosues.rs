@@ -4,7 +4,7 @@ fn math(a: i32, b: i32 , op: Box<dyn Fn(i32, i32) -> i32) -> i32 {
 
 fn main() {
     let name = "Ibrahim";
-    let add = Box::new(move |a , b| {
+    let add: Box<_> = Box::new(move |a , b| {
         println!("adding a number for {}", name);
     });
     let sub = Box::new(|a, b| a - b);

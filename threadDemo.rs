@@ -13,7 +13,7 @@ fn main() {
         for i in 1..=iterations {
             println!("   B:{}", i);
         }
-    })
+    }) 
 
     a.join();
     b.join();
@@ -46,6 +46,7 @@ fn main() {
     let data = vec!["a" , "b" , "c"];
     let caps = thread::spawn(move || {
         let data: Vec<char> = data.iter().map(|c| c.to_ascii_uppercase()).collect();
+        data
     });
 
     println!("waiting on value..");

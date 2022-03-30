@@ -26,14 +26,15 @@ fn main() {
                     ()
                 }
                 Quit => {
-                    println!("thread terminating") ;
+                    println!("thread terminating...") ;
+                    main_tx.send(MainMsg::WorkerQuit);
                     break ;
                 }
-            }
+            },
 
             Err(e) => {
                 println!("worker : disconnected");
-                main_tx.try_send(MainMsg::WorkerQuit)
+                main_tx.try_send(MainMsg::Worker)
                 break ;
             }
         }

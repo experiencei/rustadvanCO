@@ -27,7 +27,7 @@ handle.join();
 
 //multi threading example;
 let (s , r1) = unbounded();
-let r2 = r1.cloned();
+let r2 = r1.clone();
 
 let handle1 = thread::spawn(move || match r1.recv() {
     Ok(msg) => println!("Thread1 {}", msg),

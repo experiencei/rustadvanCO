@@ -41,9 +41,9 @@ fn main() {
     });
  
 
-    worker_tx.send(ThreadMsg::PrintData("hello  from main".to_owned()));
-    worker_tx.send(ThreadMsg::Sum(10, 30));
-    worker_tx.send(ThreadMsg::Quit);
+    worker_tx.send(WorkerMsg::PrintData("hello  from main".to_owned()));
+    worker_tx.send(WorkerMsg::Sum(10, 30));
+    worker_tx.send(WorkerMsg::Quit);
 
   while let Ok(msg) = main_rx.recv() {
       match msg {

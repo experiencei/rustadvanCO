@@ -14,7 +14,7 @@ fn main() {
             Ok(msg) => match msg {
                 ThreadMsg::PrintData(d) => println!("{}", d),
                 ThreadMsg::Sum(lhs , rhs) => println!("{}+{}={}", lhs , rhs , (lhs , rhs)),
-                Quit => {
+                ThreadMsg::Quit => {
                     println!("thread terminating") ;
                     break ;
                 }

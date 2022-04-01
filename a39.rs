@@ -40,7 +40,7 @@ fn spawn_light_thread(receiver: Receiver<LightMsg>) -> JoinHandle<LightStatus> {
                         println!("turned light on");
                         light_status = LightStatus::On;
                     }
-                }
+                } 
             } else {
                 println!("channel disconnected");
                 light_status = LightStatus::Off;

@@ -1,4 +1,4 @@
-// implementing into iterator
+        // implementing into iterator
 use std::collections::HashMap;
 
 #[derive(Debug, Hash , Eq, PartialEq)]
@@ -34,7 +34,7 @@ impl<'a> IntoIterator for &'a mut FruitStand {
     type Item = (&'a Fruit , &'a mut u32);
     type IntoIter = std::collections::hash_map::IterMut<'a Fruit, u32>;
     fn into_iter(self) -> Self::IntoIter {
-        self.fruit.iter_mut()
+        self. fruit.iter_mut()
     }
 }
 

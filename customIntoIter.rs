@@ -1,4 +1,4 @@
-Setup
+//  Setup
 
 struct Color {
     r: u8,
@@ -8,7 +8,7 @@ struct Color {
 
 struct ColorIntoIter {
     color: Color,
-    position: u8,
+    position: u8, 
 }
 
 struct ColorIter<'a> {
@@ -17,12 +17,13 @@ struct ColorIter<'a> {
 }
 
 trait Iterator {
-    type Item = Color;fn next(&mut self) -> Option<Self::Item>;
+    type Item = Color;
+    fn next(&mut self) -> Option<Self::Item>;
 }
 
 // Impl iterator MOVE
 
-impl Iterator for ColorIter { 
+impl Iterator for ColorIntoIter { 
     type Item = u8;
     fn next(&mut self) -> Option<Self::Item> { 
       let next = match self.position {
